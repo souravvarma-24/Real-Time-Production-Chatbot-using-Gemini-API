@@ -8,12 +8,13 @@ from core.prompt_manager import PromptManager
 class CareerAIEngine:
 
     def __init__(self):
-        genai.configure(api_key=API_TOKEN)
-        self.model = genai.GenerativeModel(ACTIVE_MODEL)
-        logger.info("CareerAIEngine initialized successfully")
+        # Initialize Gemini Client (NEW SDK FORMAT)
+        self.client = genai.Client(api_key=API_TOKEN)
+        logger.info("CareerAIEngine initialized successfully with google-genai")
 
     def process(self, conversation_buffer, user_input):
 
+        # Build structured prompt
         prompt = PromptManager.build_prompt(conversation_buffer, user_input)
 
         logger.info("Processing new request")
@@ -25,7 +26,11 @@ class CareerAIEngine:
             try:
                 logger.info(f"Gemini API call attempt {attempt+1}")
 
-                response = self.model.generate_content(prompt)
+                # NEW google-genai format
+                response = self.client.models.generate_content(
+                    model=ACTIVE_MODEL,
+                    contents=prompt
+                )
 
                 if not response or not response.text:
                     logger.warning("Empty response from Gemini")
