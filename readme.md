@@ -1,5 +1,4 @@
 # 🚀 Real-Time Production Chatbot using Gemini API
----
 
 **Innomatics Research Labs – Advanced Generative AI Internship**
 ---
