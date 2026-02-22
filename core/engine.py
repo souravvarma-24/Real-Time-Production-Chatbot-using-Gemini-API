@@ -1,4 +1,4 @@
-import google.generativeai as genai
+from google import genai
 import time
 from core.logger import logger
 from configuration.environment import API_TOKEN, ACTIVE_MODEL
