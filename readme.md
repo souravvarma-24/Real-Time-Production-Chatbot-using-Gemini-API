@@ -1,7 +1,8 @@
 # 🚀 Real-Time Production Chatbot using Gemini API
+---
+
 
 **Innomatics Research Labs – Advanced Generative AI Internship**
----
 
 This repository contains a **Production-Ready AI Career Strategy Chatbot** developed using **Google Gemini API and Streamlit**.
 
